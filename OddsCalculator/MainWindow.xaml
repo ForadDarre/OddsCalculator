@@ -65,12 +65,15 @@
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*" />
                             <RowDefinition Height="*" />
-                            <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
 
-                        <TextBlock Style="{StaticResource CommonText}">
-                        fghfghfgh
-                        </TextBlock>
+                        <Grid Name="TwoLegsOddsGrid">
+                            
+                            
+                            <TextBlock Style="{StaticResource CommonText}">
+                                fghfghfgh
+                            </TextBlock>
+                        </Grid>
                     </Grid>
                 </TabItem.Content>
             </TabItem>
