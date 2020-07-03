@@ -8,22 +8,24 @@ namespace OddsCalculator.Models
 {
 	public class ThreeLegsModel : INotifyPropertyChanged
 	{
-		private double coefA;
-		private double coefB;
-		private double coefC;
+		private double oddsA;
+		private double oddsB;
+		private double oddsC;
 		private double margin;
+
+		private string mode;
 
 		public double CoefA
 		{
 			get
 			{
-				return coefA;
+				return oddsA;
 			}
 
 			set
 			{
-				coefA = value;
-				OnPropertyChanged("CoefA");
+				oddsA = value;
+				OnPropertyChanged("OddsA");
 			}
 		}
 
@@ -31,13 +33,13 @@ namespace OddsCalculator.Models
 		{
 			get
 			{
-				return coefB;
+				return oddsB;
 			}
 
 			set
 			{
-				coefB = value;
-				OnPropertyChanged("CoefB");
+				oddsB = value;
+				OnPropertyChanged("OddsB");
 			}
 		}
 
@@ -46,13 +48,13 @@ namespace OddsCalculator.Models
 		{
 			get
 			{
-				return coefC;
+				return oddsC;
 			}
 
 			set
 			{
-				coefC = value;
-				OnPropertyChanged("CoefC");
+				oddsC = value;
+				OnPropertyChanged("OddsC");
 			}
 		}
 
@@ -70,16 +72,31 @@ namespace OddsCalculator.Models
 			}
 		}
 
-		public ThreeLegsModel()
+		public string Mode
 		{
-			coefA = 3.0;
-			coefB = 3.0;
-			coefB = 3.0;
+			get
+			{
+				return mode;
+			}
+
+			set
+			{
+				mode = value;
+				OnPropertyChanged("Mode");
+			}
+		}
+
+		public ThreeLegsModel(string _mode)
+		{
+			oddsA = 3.0;
+			oddsB = 3.0;
+			oddsB = 3.0;
 			margin = 0.0;
+			mode = _mode;
 		}
 
 		public event PropertyChangedEventHandler PropertyChanged;
-		public void OnPropertyChanged([CallerMemberName]string prop = "")
+		public void OnPropertyChanged([CallerMemberName] string prop = "")
 		{
 			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
 		}

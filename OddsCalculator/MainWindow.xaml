@@ -34,14 +34,12 @@
 
             <Button Name="CollapseButton"
                     Grid.Column="1"
-                    Margin="0 0 1 0"
                     Click="CollapseButton_Click">
                 –
             </Button>
 
             <Button Name="ExpandButton"
                     Grid.Column="2"
-                    Margin="0 0 1 0"
                     Click="ExpandButton_Click">
                 ☐
             </Button>
@@ -57,6 +55,102 @@
             <TabItem>
                 <TabItem.Header>
                     <TextBlock Style="{StaticResource CommonText}">
+                    Margin &amp; ROI
+                    </TextBlock>
+                </TabItem.Header>
+                <TabItem.Content>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+
+                        <Grid Name="TwoLegsMargin"
+                              Grid.Row="0"
+                              DataContext="{Binding TwoLegsMargin}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+
+                            <TextBlock Grid.Row="0"
+                                       Grid.Column="0"
+                                       Margin="0 0 5 0"
+                                       Style="{StaticResource CommonText}"
+                                       HorizontalAlignment="Right">
+                                Odds A:
+                            </TextBlock>
+
+                            <TextBox Grid.Row="0"
+                                     Grid.Column="1"
+                                     Margin="5 0 0 0"
+                                     HorizontalAlignment="Left"
+                                     Text="{Binding OddsA, StringFormat=F2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                            </TextBox>
+
+                            <TextBlock Grid.Row="0"
+                                       Grid.Column="2"
+                                       Margin="0 0 5 0"
+                                       Style="{StaticResource CommonText}"
+                                       HorizontalAlignment="Right">
+                                Odds B:
+                            </TextBlock>
+
+                            <TextBox Grid.Row="0"
+                                     Grid.Column="3"
+                                     Margin="5 0 0 0"
+                                     HorizontalAlignment="Left"
+                                     Text="{Binding OddsB, StringFormat=F2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                            </TextBox>
+
+                            <TextBlock Grid.Row="1"
+                                       Grid.Column="0"
+                                       Margin="0 0 5 0"
+                                       Style="{StaticResource CommonText}"
+                                       HorizontalAlignment="Right">
+                                ROI:
+                            </TextBlock>
+
+                            <TextBlock Grid.Row="1"
+                                       Grid.Column="1"
+                                       Margin="5 0 0 0"
+                                       Style="{StaticResource CommonText}"
+                                       HorizontalAlignment="Left"
+                                       Text="{Binding ROI, StringFormat=F2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                            </TextBlock>
+
+                            <TextBlock Grid.Row="1"
+                                       Grid.Column="2"
+                                       Margin="0 0 5 0"
+                                       Style="{StaticResource CommonText}"
+                                       HorizontalAlignment="Right">
+                                Margin:
+                            </TextBlock>
+
+                            <TextBlock Grid.Row="1"
+                                       Grid.Column="3"
+                                       Margin="5 0 0 0"
+                                       Style="{StaticResource CommonText}"
+                                       HorizontalAlignment="Left"
+                                       Text="{Binding Margin, StringFormat=F2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                            </TextBlock>
+                        </Grid>
+
+                    </Grid>
+                </TabItem.Content>
+            </TabItem>
+
+            <TabItem>
+                <TabItem.Header>
+                    <TextBlock Style="{StaticResource CommonText}">
                     Odds
                     </TextBlock>
                 </TabItem.Header>
@@ -67,39 +161,74 @@
                             <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
 
-                        <Grid Name="TwoLegsOddsGrid">
-                            
-                            
-                            <TextBlock Style="{StaticResource CommonText}">
-                                fghfghfgh
+                        <Grid Name="TwoLegsOdds"
+                              Grid.Row="0"
+                              DataContext="{Binding TwoLegsOdds}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+
+                            <TextBlock Grid.Row="0"
+                                       Grid.Column="0"
+                                       Margin="0 0 5 0"
+                                       Style="{StaticResource CommonText}"
+                                       HorizontalAlignment="Right">
+                                Odds A:
                             </TextBlock>
+
+                            <TextBox Grid.Row="0"
+                                     Grid.Column="1"
+                                     Margin="5 0 0 0"
+                                     HorizontalAlignment="Left"
+                                     Text="{Binding OddsA, StringFormat=F2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                            </TextBox>
+
+                            <TextBlock Grid.Row="0"
+                                       Grid.Column="2"
+                                       Margin="0 0 5 0"
+                                       Style="{StaticResource CommonText}"
+                                       HorizontalAlignment="Right">
+                                Odds B:
+                            </TextBlock>
+
+                            <TextBlock Grid.Row="0"
+                                       Grid.Column="3"
+                                       Margin="5 0 0 0"
+                                       Style="{StaticResource CommonText}"
+                                       HorizontalAlignment="Left"
+                                       Text="{Binding OddsB, StringFormat=F2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                            </TextBlock>
+
+                            <TextBlock Grid.Row="1"
+                                       Grid.Column="0"
+                                       Margin="0 0 5 0"
+                                       Style="{StaticResource CommonText}"
+                                       HorizontalAlignment="Right">
+                                ROI:
+                            </TextBlock>
+
+                            <TextBox Grid.Row="1"
+                                     Grid.Column="1"
+                                     Margin="5 0 0 0"
+                                     HorizontalAlignment="Left"
+                                     Text="{Binding ROI, StringFormat=F2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                            </TextBox>
                         </Grid>
-                    </Grid>
-                </TabItem.Content>
-            </TabItem>
 
-            <TabItem>
-                <TabItem.Header>
-                    <TextBlock Style="{StaticResource CommonText}">
-                    Margin
-                    </TextBlock>
-                </TabItem.Header>
-                <TabItem.Content>
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*" />
-                            <RowDefinition Height="*" />
-                            <RowDefinition Height="*" />
-                        </Grid.RowDefinitions>
-
-                        <TextBlock Style="{StaticResource CommonText}">
-                        fghfghfgh
-                        </TextBlock>
                     </Grid>
                 </TabItem.Content>
             </TabItem>
         </TabControl>
     </Grid>
-    
-    
+
+
 </Window>
+
