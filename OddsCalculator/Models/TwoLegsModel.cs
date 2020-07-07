@@ -13,7 +13,7 @@ namespace OddsCalculator.Models
 		private double oddsA;
 		private double oddsB;
 		private double margin;
-		private double roi;
+		private double payout;
 
 		private string mode;
 
@@ -27,7 +27,7 @@ namespace OddsCalculator.Models
 			set
 			{
 				oddsA = value;
-				OnPropertyChanged("ROI");
+				OnPropertyChanged("Payout");
 				OnPropertyChanged("Margin");
 				OnPropertyChanged("OddsA");
 				OnPropertyChanged("OddsB");
@@ -40,7 +40,8 @@ namespace OddsCalculator.Models
 			{
 				if (mode == MainVM.oddsMode)
 				{
-					oddsB = 1 / (2 - 1 / oddsA - roi / 100);
+					//oddsB = 1 / (2 - payout / 100 - 1 / oddsA);
+					oddsB = 1 / (100 / payout - 1 / oddsA);
 				}
 
 				return oddsB;
@@ -49,7 +50,7 @@ namespace OddsCalculator.Models
 			set
 			{
 				oddsB = value;
-				OnPropertyChanged("ROI");
+				OnPropertyChanged("Payout");
 				OnPropertyChanged("Margin");
 				OnPropertyChanged("OddsA");
 				OnPropertyChanged("OddsB");
@@ -68,29 +69,27 @@ namespace OddsCalculator.Models
 			set
 			{
 				margin = value;
-				OnPropertyChanged("ROI");
 				OnPropertyChanged("Margin");
-				OnPropertyChanged("OddsA");
-				OnPropertyChanged("OddsB");
 			}
 		}
 
-		public double ROI
+		public double Payout
 		{
 			get
 			{
 				if (mode == MainVM.marginMode)
 				{
-					roi = 200 - (1 / oddsA + 1 / oddsB) * 100;
+					//payout = 200 - 100 / oddsA - 100 / oddsB;
+					payout = 100 / (1 / oddsA + 1 / oddsB);
 				}
 
-				return roi;
+				return payout;
 			}
 
 			set
 			{
-				roi = value;
-				OnPropertyChanged("ROI");
+				payout = value;
+				OnPropertyChanged("Payout");
 				OnPropertyChanged("Margin");
 				OnPropertyChanged("OddsA");
 				OnPropertyChanged("OddsB");
@@ -123,7 +122,7 @@ namespace OddsCalculator.Models
 
 			else
 			{
-				roi = 100.0;
+				payout = 100.0;
 				oddsA = 2.0;
 			}
 		}

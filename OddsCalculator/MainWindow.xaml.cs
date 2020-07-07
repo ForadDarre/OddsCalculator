@@ -26,26 +26,29 @@ namespace OddsCalculator
 
 			MainVM vm = new MainVM();
 			DataContext = vm;
+
+			SetWindowCommands(vm);
 		}
 
-		private void CollapseButton_Click(object sender, RoutedEventArgs e)
+		private void SetWindowCommands(MainVM vm)
 		{
-			this.WindowState = WindowState.Minimized;
-		}
+			if (vm.CloseAction == null)
+				vm.CloseAction = new Action(() => this.Close());
 
-		private void ExpandButton_Click(object sender, RoutedEventArgs e)
-		{
-			this.WindowState = WindowState.Maximized;
-		}
+			if (vm.MaximizeAction == null)
+				vm.MaximizeAction = new Action(() =>
+				{
+					if (this.WindowState == WindowState.Maximized)
+						this.WindowState = WindowState.Normal;
+					else if (this.WindowState == WindowState.Normal)
+						this.WindowState = WindowState.Maximized;
+				});
 
-		private void CloseButton_Click(object sender, RoutedEventArgs e)
-		{
-			this.Close();
-		}
+			if (vm.MinimizeAction == null)
+				vm.MinimizeAction = new Action(() => this.WindowState = WindowState.Minimized);
 
-		private void RectangleForDrag_MouseDown(object sender, MouseButtonEventArgs e)
-		{
-			this.DragMove();
+			if (vm.DragAction == null)
+				vm.DragAction = new Action(() => this.DragMove());
 		}
 	}
 }

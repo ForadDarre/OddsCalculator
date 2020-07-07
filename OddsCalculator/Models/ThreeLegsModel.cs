@@ -12,10 +12,11 @@ namespace OddsCalculator.Models
 		private double oddsB;
 		private double oddsC;
 		private double margin;
+		private double payout;
 
 		private string mode;
 
-		public double CoefA
+		public double OddsA
 		{
 			get
 			{
@@ -25,11 +26,15 @@ namespace OddsCalculator.Models
 			set
 			{
 				oddsA = value;
+				OnPropertyChanged("Payout");
+				OnPropertyChanged("Margin");
 				OnPropertyChanged("OddsA");
+				OnPropertyChanged("OddsB");
+				OnPropertyChanged("OddsC");
 			}
 		}
 
-		public double CoefB
+		public double OddsB
 		{
 			get
 			{
@@ -39,21 +44,34 @@ namespace OddsCalculator.Models
 			set
 			{
 				oddsB = value;
+				OnPropertyChanged("Payout");
+				OnPropertyChanged("Margin");
+				OnPropertyChanged("OddsA");
 				OnPropertyChanged("OddsB");
+				OnPropertyChanged("OddsC");
 			}
 		}
 
 
-		public double CoefC
+		public double OddsC
 		{
 			get
 			{
+				if (mode == MainVM.oddsMode)
+				{
+					oddsC = 1 / (100 / payout - 1 / oddsA - 1 / oddsB);
+				}
+
 				return oddsC;
 			}
 
 			set
 			{
 				oddsC = value;
+				OnPropertyChanged("Payout");
+				OnPropertyChanged("Margin");
+				OnPropertyChanged("OddsA");
+				OnPropertyChanged("OddsB");
 				OnPropertyChanged("OddsC");
 			}
 		}
@@ -62,13 +80,42 @@ namespace OddsCalculator.Models
 		{
 			get
 			{
+				margin = (1 / oddsA + 1 / oddsB + 1 / oddsC) * 100 - 100;
+
 				return margin;
 			}
 
 			set
 			{
 				margin = value;
+				OnPropertyChanged("Payout");
 				OnPropertyChanged("Margin");
+				OnPropertyChanged("OddsA");
+				OnPropertyChanged("OddsB");
+				OnPropertyChanged("OddsC");
+			}
+		}
+
+		public double Payout
+		{
+			get
+			{
+				if (mode == MainVM.marginMode)
+				{
+					payout = 100 / (1 / oddsA + 1 / oddsB + 1 / oddsC);
+				}
+
+				return payout;
+			}
+
+			set
+			{
+				payout = value;
+				OnPropertyChanged("Payout");
+				OnPropertyChanged("Margin");
+				OnPropertyChanged("OddsA");
+				OnPropertyChanged("OddsB");
+				OnPropertyChanged("OddsC");
 			}
 		}
 
@@ -88,11 +135,21 @@ namespace OddsCalculator.Models
 
 		public ThreeLegsModel(string _mode)
 		{
-			oddsA = 3.0;
-			oddsB = 3.0;
-			oddsB = 3.0;
-			margin = 0.0;
 			mode = _mode;
+
+			if (mode == MainVM.marginMode)
+			{
+				oddsA = 3.0;
+				oddsB = 3.0;
+				oddsC = 3.0;
+			}
+
+			else
+			{
+				payout = 100.0;
+				oddsA = 3.0;
+				oddsB = 3.0;
+			}
 		}
 
 		public event PropertyChangedEventHandler PropertyChanged;
