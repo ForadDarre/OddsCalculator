@@ -13,7 +13,7 @@
         AllowsTransparency="True"
         ResizeMode="CanResizeWithGrip"
         Title="MainWindow"
-        Style="{StaticResource WindowStyle}">
+        Style="{DynamicResource WindowStyle}">
     <Grid x:Name="Main">
         <Grid.RowDefinitions>
             <RowDefinition Height="20px"/>
@@ -61,7 +61,7 @@
         <TabControl Grid.Row="1">
             <TabItem>
                 <TabItem.Header>
-                    <TextBlock Style="{StaticResource CommonText}">
+                    <TextBlock Style="{DynamicResource CommonText}">
                     Margin &amp; Payout
                     </TextBlock>
                 </TabItem.Header>
@@ -91,14 +91,14 @@
                             <TextBlock Grid.Row="0"
                                        Grid.Column="0"
                                        Grid.ColumnSpan="4"
-                                       Style="{StaticResource Header}">
+                                       Style="{DynamicResource Header}">
                                 Two-way
                             </TextBlock>
 
                             <TextBlock Grid.Row="1"
                                        Grid.Column="0"
                                        Margin="0 0 5 0"
-                                       Style="{StaticResource CommonText}"
+                                       Style="{DynamicResource CommonText}"
                                        HorizontalAlignment="Right">
                                 Odds A:
                             </TextBlock>
@@ -113,7 +113,7 @@
                             <TextBlock Grid.Row="1"
                                        Grid.Column="2"
                                        Margin="0 0 5 0"
-                                       Style="{StaticResource CommonText}"
+                                       Style="{DynamicResource CommonText}"
                                        HorizontalAlignment="Right">
                                 Odds B:
                             </TextBlock>
@@ -128,7 +128,7 @@
                             <TextBlock Grid.Row="2"
                                        Grid.Column="0"
                                        Margin="0 0 5 0"
-                                       Style="{StaticResource CommonText}"
+                                       Style="{DynamicResource CommonText}"
                                        HorizontalAlignment="Right">
                                 Payout:
                             </TextBlock>
@@ -136,7 +136,7 @@
                             <TextBlock Grid.Row="2"
                                        Grid.Column="1"
                                        Margin="5 0 0 0"
-                                       Style="{StaticResource CommonText}"
+                                       Style="{DynamicResource CommonText}"
                                        HorizontalAlignment="Left"
                                        Text="{Binding Payout, StringFormat={}{0:#0.00'%'}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                             </TextBlock>
@@ -144,7 +144,7 @@
                             <TextBlock Grid.Row="2"
                                        Grid.Column="2"
                                        Margin="0 0 5 0"
-                                       Style="{StaticResource CommonText}"
+                                       Style="{DynamicResource CommonText}"
                                        HorizontalAlignment="Right">
                                 Margin:
                             </TextBlock>
@@ -152,7 +152,7 @@
                             <TextBlock Grid.Row="2"
                                        Grid.Column="3"
                                        Margin="5 0 0 0"
-                                       Style="{StaticResource CommonText}"
+                                       Style="{DynamicResource CommonText}"
                                        HorizontalAlignment="Left"
                                        Text="{Binding Margin, StringFormat={}{0:#0.00'%'}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                             </TextBlock>
@@ -179,14 +179,14 @@
                             <TextBlock Grid.Row="0"
                                        Grid.Column="0"
                                        Grid.ColumnSpan="6"
-                                       Style="{StaticResource Header}">
+                                       Style="{DynamicResource Header}">
                                 Three-way
                             </TextBlock>
 
                             <TextBlock Grid.Row="1"
                                        Grid.Column="0"
                                        Margin="0 0 5 0"
-                                       Style="{StaticResource CommonText}"
+                                       Style="{DynamicResource CommonText}"
                                        HorizontalAlignment="Right">
                                 Odds A:
                             </TextBlock>
@@ -201,7 +201,7 @@
                             <TextBlock Grid.Row="1"
                                        Grid.Column="2"
                                        Margin="0 0 5 0"
-                                       Style="{StaticResource CommonText}"
+                                       Style="{DynamicResource CommonText}"
                                        HorizontalAlignment="Right">
                                 Odds B:
                             </TextBlock>
@@ -216,7 +216,7 @@
                             <TextBlock Grid.Row="1"
                                        Grid.Column="4"
                                        Margin="0 0 5 0"
-                                       Style="{StaticResource CommonText}"
+                                       Style="{DynamicResource CommonText}"
                                        HorizontalAlignment="Right">
                                 Odds C:
                             </TextBlock>
@@ -231,7 +231,7 @@
                             <TextBlock Grid.Row="2"
                                        Grid.Column="0"
                                        Margin="0 0 5 0"
-                                       Style="{StaticResource CommonText}"
+                                       Style="{DynamicResource CommonText}"
                                        HorizontalAlignment="Right">
                                 Payout:
                             </TextBlock>
@@ -239,7 +239,7 @@
                             <TextBlock Grid.Row="2"
                                        Grid.Column="1"
                                        Margin="5 0 0 0"
-                                       Style="{StaticResource CommonText}"
+                                       Style="{DynamicResource CommonText}"
                                        HorizontalAlignment="Left"
                                        Text="{Binding Payout, StringFormat={}{0:#0.00'%'}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                             </TextBlock>
@@ -247,7 +247,7 @@
                             <TextBlock Grid.Row="2"
                                        Grid.Column="2"
                                        Margin="0 0 5 0"
-                                       Style="{StaticResource CommonText}"
+                                       Style="{DynamicResource CommonText}"
                                        HorizontalAlignment="Right">
                                 Margin:
                             </TextBlock>
@@ -255,7 +255,7 @@
                             <TextBlock Grid.Row="2"
                                        Grid.Column="3"
                                        Margin="5 0 0 0"
-                                       Style="{StaticResource CommonText}"
+                                       Style="{DynamicResource CommonText}"
                                        HorizontalAlignment="Left"
                                        Text="{Binding Margin, StringFormat={}{0:#0.00'%'}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                             </TextBlock>
@@ -266,7 +266,7 @@
 
             <TabItem>
                 <TabItem.Header>
-                    <TextBlock Style="{StaticResource CommonText}">
+                    <TextBlock Style="{DynamicResource CommonText}">
                     Odds
                     </TextBlock>
                 </TabItem.Header>
@@ -296,14 +296,14 @@
                             <TextBlock Grid.Row="0"
                                        Grid.Column="0"
                                        Grid.ColumnSpan="4"
-                                       Style="{StaticResource Header}">
+                                       Style="{DynamicResource Header}">
                                 Two-way
                             </TextBlock>
 
                             <TextBlock Grid.Row="1"
                                        Grid.Column="0"
                                        Margin="0 0 5 0"
-                                       Style="{StaticResource CommonText}"
+                                       Style="{DynamicResource CommonText}"
                                        HorizontalAlignment="Right">
                                 Odds A:
                             </TextBlock>
@@ -318,7 +318,7 @@
                             <TextBlock Grid.Row="1"
                                        Grid.Column="2"
                                        Margin="0 0 5 0"
-                                       Style="{StaticResource CommonText}"
+                                       Style="{DynamicResource CommonText}"
                                        HorizontalAlignment="Right">
                                 Odds B:
                             </TextBlock>
@@ -326,7 +326,7 @@
                             <TextBlock Grid.Row="1"
                                        Grid.Column="3"
                                        Margin="5 0 0 0"
-                                       Style="{StaticResource CommonText}"
+                                       Style="{DynamicResource CommonText}"
                                        HorizontalAlignment="Left"
                                        Text="{Binding OddsB, StringFormat={}{0:#0.00}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                             </TextBlock>
@@ -334,7 +334,7 @@
                             <TextBlock Grid.Row="2"
                                        Grid.Column="0"
                                        Margin="0 0 5 0"
-                                       Style="{StaticResource CommonText}"
+                                       Style="{DynamicResource CommonText}"
                                        HorizontalAlignment="Right">
                                 Payout:
                             </TextBlock>
@@ -368,14 +368,14 @@
                             <TextBlock Grid.Row="0"
                                        Grid.Column="0"
                                        Grid.ColumnSpan="6"
-                                       Style="{StaticResource Header}">
+                                       Style="{DynamicResource Header}">
                                 Three-way
                             </TextBlock>
 
                             <TextBlock Grid.Row="1"
                                        Grid.Column="0"
                                        Margin="0 0 5 0"
-                                       Style="{StaticResource CommonText}"
+                                       Style="{DynamicResource CommonText}"
                                        HorizontalAlignment="Right">
                                 Odds A:
                             </TextBlock>
@@ -390,7 +390,7 @@
                             <TextBlock Grid.Row="1"
                                        Grid.Column="2"
                                        Margin="0 0 5 0"
-                                       Style="{StaticResource CommonText}"
+                                       Style="{DynamicResource CommonText}"
                                        HorizontalAlignment="Right">
                                 Odds B:
                             </TextBlock>
@@ -405,7 +405,7 @@
                             <TextBlock Grid.Row="1"
                                        Grid.Column="4"
                                        Margin="0 0 5 0"
-                                       Style="{StaticResource CommonText}"
+                                       Style="{DynamicResource CommonText}"
                                        HorizontalAlignment="Right">
                                 Odds C:
                             </TextBlock>
@@ -413,7 +413,7 @@
                             <TextBlock Grid.Row="1"
                                        Grid.Column="5"
                                        Margin="5 0 0 0"
-                                       Style="{StaticResource CommonText}"
+                                       Style="{DynamicResource CommonText}"
                                        HorizontalAlignment="Left"
                                        Text="{Binding OddsC, StringFormat={}{0:#0.00}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                             </TextBlock>
@@ -421,7 +421,7 @@
                             <TextBlock Grid.Row="2"
                                        Grid.Column="2"
                                        Margin="0 0 5 0"
-                                       Style="{StaticResource CommonText}"
+                                       Style="{DynamicResource CommonText}"
                                        HorizontalAlignment="Right">
                                 Payout:
                             </TextBlock>
@@ -440,6 +440,7 @@
 
         <CheckBox Name="ThemesSwitch"
                   Grid.Row="2"
+                  Style="{DynamicResource ThemeSwitch}"
                   Command="{Binding SwitchThemeCommand}">
         </CheckBox>
     </Grid>

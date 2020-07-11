@@ -57,7 +57,7 @@ namespace OddsCalculator.Models
 		{
 			get
 			{
-				if (mode == MainVM.oddsMode)
+				if (mode == MainVM.OddsMode)
 				{
 					oddsC = 1 / (100 / payout - 1 / oddsA - 1 / oddsB);
 				}
@@ -100,7 +100,7 @@ namespace OddsCalculator.Models
 		{
 			get
 			{
-				if (mode == MainVM.marginMode)
+				if (mode == MainVM.MarginMode)
 				{
 					payout = 100 / (1 / oddsA + 1 / oddsB + 1 / oddsC);
 				}
@@ -137,7 +137,7 @@ namespace OddsCalculator.Models
 		{
 			mode = _mode;
 
-			if (mode == MainVM.marginMode)
+			if (mode == MainVM.MarginMode)
 			{
 				oddsA = 3.0;
 				oddsB = 3.0;
