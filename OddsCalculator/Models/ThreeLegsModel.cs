@@ -4,6 +4,9 @@ using System.Text;
 using System.Runtime.CompilerServices;
 using System.ComponentModel;
 
+using OddsCalculator;
+using OddsCalculator.Services;
+
 namespace OddsCalculator.Models
 {
 	public class ThreeLegsModel : INotifyPropertyChanged
@@ -59,7 +62,8 @@ namespace OddsCalculator.Models
 			{
 				if (mode == MainVM.OddsMode)
 				{
-					oddsC = 1 / (100 / payout - 1 / oddsA - 1 / oddsB);
+					CalculationsService calculationsService = new CalculationsService();
+					oddsC = calculationsService.CalculateOddsByPayout(oddsA, oddsB, payout);
 				}
 
 				return oddsC;
@@ -80,7 +84,8 @@ namespace OddsCalculator.Models
 		{
 			get
 			{
-				margin = (1 / oddsA + 1 / oddsB + 1 / oddsC) * 100 - 100;
+				CalculationsService calculationsService = new CalculationsService();
+				margin = calculationsService.CalculateMargin(oddsA, oddsB, oddsC);
 
 				return margin;
 			}
@@ -102,7 +107,8 @@ namespace OddsCalculator.Models
 			{
 				if (mode == MainVM.MarginMode)
 				{
-					payout = 100 / (1 / oddsA + 1 / oddsB + 1 / oddsC);
+					CalculationsService calculationsService = new CalculationsService();
+					payout = calculationsService.CalculatePayout(oddsA, oddsB, oddsC);
 				}
 
 				return payout;
